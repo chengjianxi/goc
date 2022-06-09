@@ -1,4 +1,4 @@
-package hxlog
+package log
 
 import (
 	"encoding/json"
@@ -149,7 +149,7 @@ func ErrorWithRequest(request *http.Request, args ...interface{}) {
 	ErrorWithFields(requestFields(request), args...)
 }
 
-func PanicLog(args ...interface{}) {
+func Panic(args ...interface{}) {
 	logrus.Panic(args...)
 }
 
