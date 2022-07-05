@@ -125,6 +125,10 @@ func Warn(args ...interface{}) {
 	logrus.Warn(args...)
 }
 
+func Warnf(format string, args ...interface{}) {
+	logrus.Warnf(format, args...)
+}
+
 func WarnWithFields(fields map[string]interface{}, args ...interface{}) {
 	logrus.WithFields(fields).Warn(args...)
 }
