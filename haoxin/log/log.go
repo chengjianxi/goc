@@ -107,14 +107,17 @@ func requestFields(request *http.Request) map[string]interface{} {
 
 func Info(args ...interface{}) {
 	logrus.Info(args...)
+	fmt.Println(args...)
 }
 
 func Infof(format string, args ...interface{}) {
 	logrus.Infof(format, args...)
+	fmt.Printf(format+"\r\n", args...)
 }
 
 func InfoWithFields(fields map[string]interface{}, args ...interface{}) {
 	logrus.WithFields(fields).Info(args...)
+	fmt.Println(args...)
 }
 
 func InfoLogWithRequest(request *http.Request, args ...interface{}) {
@@ -123,14 +126,17 @@ func InfoLogWithRequest(request *http.Request, args ...interface{}) {
 
 func Warn(args ...interface{}) {
 	logrus.Warn(args...)
+	fmt.Println(args...)
 }
 
 func Warnf(format string, args ...interface{}) {
 	logrus.Warnf(format, args...)
+	fmt.Printf(format+"\r\n", args...)
 }
 
 func WarnWithFields(fields map[string]interface{}, args ...interface{}) {
 	logrus.WithFields(fields).Warn(args...)
+	fmt.Println(args...)
 }
 
 func WarnLogWithRequest(request *http.Request, args ...interface{}) {
@@ -139,14 +145,17 @@ func WarnLogWithRequest(request *http.Request, args ...interface{}) {
 
 func Error(args ...interface{}) {
 	logrus.Error(args...)
+	fmt.Println(args...)
 }
 
 func Errorf(format string, args ...interface{}) {
 	logrus.Errorf(format, args...)
+	fmt.Println(args...)
 }
 
 func ErrorWithFields(fields map[string]interface{}, args ...interface{}) {
 	logrus.WithFields(fields).Error(args...)
+	fmt.Println(args...)
 }
 
 func ErrorWithRequest(request *http.Request, args ...interface{}) {
@@ -155,10 +164,17 @@ func ErrorWithRequest(request *http.Request, args ...interface{}) {
 
 func Panic(args ...interface{}) {
 	logrus.Panic(args...)
+	fmt.Println(args...)
+}
+
+func Panicf(format string, args ...interface{}) {
+	logrus.Panicf(format, args...)
+	fmt.Printf(format+"\r\n", args...)
 }
 
 func PanicWithFields(fields map[string]interface{}, args ...interface{}) {
 	logrus.WithFields(fields).Panic(args...)
+	fmt.Println(args...)
 }
 
 func PanicWithRequest(request *http.Request, args ...interface{}) {
