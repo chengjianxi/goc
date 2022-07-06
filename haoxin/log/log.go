@@ -150,7 +150,7 @@ func Error(args ...interface{}) {
 
 func Errorf(format string, args ...interface{}) {
 	logrus.Errorf(format, args...)
-	fmt.Println(args...)
+	fmt.Printf(format+"\r\n", args...)
 }
 
 func ErrorWithFields(fields map[string]interface{}, args ...interface{}) {
