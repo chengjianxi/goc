@@ -1,6 +1,8 @@
 package eureka
 
 import (
+	"fmt"
+	"strings"
 	"sync"
 
 	"github.com/chengjianxi/goc/haoxin/balancer"
@@ -14,18 +16,17 @@ type Eureka struct {
 }
 
 // 启动服务注册发现
-func Start(zone string, appName string, port int, instanceId string) *Eureka {
+func Start(zone string, appName string, port int) *Eureka {
 	// 服务注册 github.com/xuanbo/eureka-client
 	// 创建 eureka client
 	// zone := fmt.Sprintf("http://%s:%d/eureka/", c.Eureka.Host, c.Eureka.Port)
-	// instanceId := fmt.Sprintf("%s:%s:%d", strings.ToLower(c.AppName), eureka_client.GetLocalIP(), c.Port),
 	eureka := eureka_client.NewClient(&eureka_client.Config{
 		DefaultZone:           zone,
 		App:                   appName,
 		Port:                  port,
 		RenewalIntervalInSecs: 30,
 		DurationInSecs:        30,
-		InstanceID:            instanceId,
+		InstanceID:            fmt.Sprintf("%s:%s:%d", strings.ToLower(appName), eureka_client.GetLocalIP(), port),
 	})
 	// 启动 eureka client, register、heartbeat、refresh
 	eureka.Start()
