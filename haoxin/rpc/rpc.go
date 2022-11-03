@@ -14,6 +14,14 @@ type Option struct {
 	Tid string
 }
 
+func OptionWithSid(sid string) Option {
+	return Option{Sid: sid}
+}
+
+func OptionWithTid(tid string) Option {
+	return Option{Tid: tid}
+}
+
 func Rpc(request *http.Request, method string, addr string, uri string, query interface{}, body interface{}, opts ...Option) (string, error) {
 	if addr == "" {
 		return "", errors.New("没有找到指定的服务")
@@ -35,8 +43,13 @@ func Rpc(request *http.Request, method string, addr string, uri string, query in
 	tid := ""
 
 	for _, opt := range opts {
-		sid = opt.Sid
-		tid = opt.Tid
+		if opt.Sid != "" {
+			sid = opt.Sid
+		}
+
+		if opt.Tid != "" {
+			tid = opt.Tid
+		}
 	}
 
 	if request != nil {
