@@ -106,77 +106,82 @@ func requestFields(request *http.Request) map[string]interface{} {
 }
 
 func Info(args ...interface{}) {
-	logrus.Info(args...)
 	fmt.Println(args...)
+	logrus.Info(args...)
 }
 
 func Infof(format string, args ...interface{}) {
-	logrus.Infof(format, args...)
 	fmt.Printf(format+"\r\n", args...)
+	logrus.Infof(format, args...)
 }
 
 func InfoWithFields(fields map[string]interface{}, args ...interface{}) {
-	logrus.WithFields(fields).Info(args...)
 	fmt.Println(args...)
+	logrus.WithFields(fields).Info(args...)
 }
 
 func InfoLogWithRequest(request *http.Request, args ...interface{}) {
+	fmt.Println(args...)
 	InfoWithFields(requestFields(request), args...)
 }
 
 func Warn(args ...interface{}) {
-	logrus.Warn(args...)
 	fmt.Println(args...)
+	logrus.Warn(args...)
 }
 
 func Warnf(format string, args ...interface{}) {
-	logrus.Warnf(format, args...)
 	fmt.Printf(format+"\r\n", args...)
+	logrus.Warnf(format, args...)
 }
 
 func WarnWithFields(fields map[string]interface{}, args ...interface{}) {
-	logrus.WithFields(fields).Warn(args...)
 	fmt.Println(args...)
+	logrus.WithFields(fields).Warn(args...)
 }
 
 func WarnLogWithRequest(request *http.Request, args ...interface{}) {
+	fmt.Println(args...)
 	WarnWithFields(requestFields(request), args...)
 }
 
 func Error(args ...interface{}) {
-	logrus.Error(args...)
 	fmt.Println(args...)
+	logrus.Error(args...)
 }
 
 func Errorf(format string, args ...interface{}) {
-	logrus.Errorf(format, args...)
 	fmt.Printf(format+"\r\n", args...)
+	logrus.Errorf(format, args...)
+
 }
 
 func ErrorWithFields(fields map[string]interface{}, args ...interface{}) {
-	logrus.WithFields(fields).Error(args...)
 	fmt.Println(args...)
+	logrus.WithFields(fields).Error(args...)
 }
 
 func ErrorWithRequest(request *http.Request, args ...interface{}) {
+	fmt.Println(args...)
 	ErrorWithFields(requestFields(request), args...)
 }
 
 func Panic(args ...interface{}) {
-	logrus.Panic(args...)
 	fmt.Println(args...)
+	logrus.Panic(args...)
 }
 
 func Panicf(format string, args ...interface{}) {
-	logrus.Panicf(format, args...)
 	fmt.Printf(format+"\r\n", args...)
+	logrus.Panicf(format, args...)
 }
 
 func PanicWithFields(fields map[string]interface{}, args ...interface{}) {
-	logrus.WithFields(fields).Panic(args...)
 	fmt.Println(args...)
+	logrus.WithFields(fields).Panic(args...)
 }
 
 func PanicWithRequest(request *http.Request, args ...interface{}) {
+	fmt.Println(args...)
 	PanicWithFields(requestFields(request), args...)
 }
