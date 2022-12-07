@@ -27,7 +27,7 @@ func parseErrorTag(field, tag string) string {
 func parseParamErrorDetails(t reflect.Type, err error, tag string) string {
 	// https://github.com/gin-gonic/gin/issues/2334
 	// https://stackoverflow.com/questions/70069834/return-custom-error-message-from-struct-tag-validation
-	details := "Bad Request。具体是：%s"
+	details := "Bad Request。具体是："
 	var ve validator.ValidationErrors
 	if errors.As(err, &ve) {
 		for _, fe := range ve {
