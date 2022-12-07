@@ -4,9 +4,14 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"encoding/json"
+	"time"
 )
 
 type StringTime sql.NullTime
+
+func StringTimeNow() StringTime {
+	return StringTime{Time: time.Now(), Valid: true}
+}
 
 // Scan implements the Scanner interface.
 func (n *StringTime) Scan(value interface{}) error {
