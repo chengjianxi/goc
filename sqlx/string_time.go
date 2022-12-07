@@ -34,11 +34,15 @@ func (n StringTime) MarshalJSON() ([]byte, error) {
 }
 
 func (n *StringTime) UnmarshalJSON(b []byte) error {
+	// Ignore null, like in the main JSON package.
 	if string(b) == "null" {
 		n.Valid = false
 		return nil
 	}
-	err := json.Unmarshal(b, &n.Time)
+
+	// Fractional seconds are handled implicitly by Parse.
+	var err error
+	n.Time, err = time.Parse(`"2006-01-02 15:04:05"`, string(b))
 	if err == nil {
 		n.Valid = true
 	}
