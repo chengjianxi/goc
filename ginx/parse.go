@@ -61,3 +61,13 @@ func ParseQueryRequest(c *gin.Context, obj interface{}) error {
 
 	return nil
 }
+
+func ParseRequest(c *gin.Context, obj interface{}) error {
+	if err := c.ShouldBind(obj); err != nil {
+		// 参数不合法
+		desc := parseParamErrorDetails(reflect.TypeOf(obj), err, "form")
+		return errors.New(desc)
+	}
+
+	return nil
+}
