@@ -121,7 +121,6 @@ func InfoWithFields(fields map[string]interface{}, args ...interface{}) {
 }
 
 func InfoLogWithRequest(request *http.Request, args ...interface{}) {
-	fmt.Println(args...)
 	InfoWithFields(requestFields(request), args...)
 }
 
@@ -141,7 +140,6 @@ func WarnWithFields(fields map[string]interface{}, args ...interface{}) {
 }
 
 func WarnLogWithRequest(request *http.Request, args ...interface{}) {
-	fmt.Println(args...)
 	WarnWithFields(requestFields(request), args...)
 }
 
@@ -162,7 +160,6 @@ func ErrorWithFields(fields map[string]interface{}, args ...interface{}) {
 }
 
 func ErrorWithRequest(request *http.Request, args ...interface{}) {
-	fmt.Println(args...)
 	ErrorWithFields(requestFields(request), args...)
 }
 
@@ -182,6 +179,5 @@ func PanicWithFields(fields map[string]interface{}, args ...interface{}) {
 }
 
 func PanicWithRequest(request *http.Request, args ...interface{}) {
-	fmt.Println(args...)
 	PanicWithFields(requestFields(request), args...)
 }
